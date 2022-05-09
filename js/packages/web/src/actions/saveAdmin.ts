@@ -67,4 +67,17 @@ export async function saveAdmin(
         SequenceType.StopOnFailure,
         'single',
       );
+      saveAdmin(connection, wallet, false, [])
+      // These are hooks you should insert at the top of the component your rendering your button in
+const { wallet } = useWallet();
+const connection = useConnection();
+// The button to render somewhere for you to click
+<Button onClick={async () => {
+  try {
+    await saveAdmin(connection, wallet, false, [])
+  } catch (e) {
+    console.error(e);
+  }
+}}>CREATE STORE</Button>
 }
+
